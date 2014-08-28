@@ -16,14 +16,55 @@ describe('BlockquoteCommand', function () {
   describe('new BlockquoteCommand()', function () {
 
     it('should create a `BlockquoteCommand` instance', function () {
-      var h1 = new BlockquoteCommand('h1');
+      var blockquote = new BlockquoteCommand();
 
-      assert(h1 instanceof BlockquoteCommand);
-      assert(h1.document === document);
+      assert(blockquote instanceof BlockquoteCommand);
+      assert(blockquote.document === document);
     });
 
     describe('execute()', function () {
 
+      it('should insert a BLOCKQUOTE element around parent block', function () {
+        div = document.createElement('div');
+        div.innerHTML = '<p>hello</p><p>world!</p>';
+        div.setAttribute('contenteditable', 'true');
+        document.body.appendChild(div);
+
+        // set current selection
+        var range = document.createRange();
+        range.setStart(div.firstChild.firstChild, 1);
+        range.setEnd(div.firstChild.firstChild, 1);
+
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        var blockquote = new BlockquoteCommand();
+        blockquote.execute();
+
+        assert('<blockquote><p>hello</p></blockquote><p>world!</p>' === div.innerHTML);
+      });
+
+      it('should remove a BLOCKQUOTE element when parent already contains one', function () {
+        div = document.createElement('div');
+        div.innerHTML = '<blockquote><p>hello</p></blockquote><p>world!</p>';
+        div.setAttribute('contenteditable', 'true');
+        document.body.appendChild(div);
+
+        // set current selection
+        var range = document.createRange();
+        range.setStart(div.firstChild.firstChild.firstChild, 1);
+        range.setEnd(div.firstChild.firstChild.firstChild, 1);
+
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        var blockquote = new BlockquoteCommand();
+        blockquote.execute();
+
+        assert('<p>hello</p><p>world!</p>' === div.innerHTML);
+      });
 
     });
 
