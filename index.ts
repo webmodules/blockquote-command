@@ -41,7 +41,14 @@ class BlockquoteCommand implements Command {
 
   execute(range?: Range, value?: any): void {
     var cmd = this.queryState(range) ? this.outdent : this.indent;
-    return cmd.execute();
+    cmd.execute(range);
+    if (!range) range = currentRange(this.document);
+    var blockquote = closest(range.commonAncestorContainer, 'blockquote', true);
+    if (blockquote) {
+      // On Chrome, at least, the BLOCKQUOTE gets created with `margin`,
+      // `border` and `padding` inline style attributes. We must remove them.
+      blockquote.removeAttribute('style');
+    }
   }
 
   queryEnabled(range?: Range): boolean {
@@ -52,8 +59,8 @@ class BlockquoteCommand implements Command {
   queryState(range?: Range): boolean {
     if (!range) range = currentRange(this.document);
     if (!range) return false;
-    var node = closest(range.commonAncestorContainer, 'blockquote', true);
-    return !! node;
+    var blockquote = closest(range.commonAncestorContainer, 'blockquote', true);
+    return !! blockquote;
   }
 }
 
