@@ -5,6 +5,7 @@
  */
 
 import Command = require('command');
+import IndentCommand = require('indent-command');
 import NativeCommand = require('native-command');
 
 /**
@@ -34,21 +35,14 @@ class BlockquoteCommand implements Command {
 
   constructor(doc?: Document) {
     this.document = doc || document;
-    this.indent = new NativeCommand('indent');
-    this.outdent = new NativeCommand('outdent');
+    this.indent = new IndentCommand(this.document)
+    this.outdent = new NativeCommand('outdent', this.document);
     debug('created BlockquoteCommand: document %o', this.document);
   }
 
   execute(range?: Range, value?: any): void {
     var cmd = this.queryState(range) ? this.outdent : this.indent;
     cmd.execute(range);
-    if (!range) range = currentRange(this.document);
-    var blockquote = closest(range.commonAncestorContainer, 'blockquote', true);
-    if (blockquote) {
-      // On Chrome, at least, the BLOCKQUOTE gets created with `margin`,
-      // `border` and `padding` inline style attributes. We must remove them.
-      blockquote.removeAttribute('style');
-    }
   }
 
   queryEnabled(range?: Range): boolean {
