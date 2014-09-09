@@ -2,7 +2,7 @@
 /**
 * TypeScript dependencies.
 */
-import NativeCommand = require('native-command');
+import Command = require('command');
 /**
 * `IndentCommand` class is a wrapper around the `indent` native command.
 * It applies cross-browser normalization logic, for example, removing any
@@ -17,9 +17,11 @@ import NativeCommand = require('native-command');
 *
 * @public
 */
-declare class IndentCommand extends NativeCommand {
+declare class IndentCommand implements Command {
+    public document: Document;
     constructor(doc?: Document);
     public execute(range?: Range, value?: any): void;
+    public queryEnabled(range?: Range): boolean;
     public queryState(range?: Range): boolean;
 }
 export = IndentCommand;
