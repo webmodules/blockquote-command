@@ -1,4 +1,12 @@
 
+1.2.1 / 2014-09-08
+==================
+
+ * index: fix failing tests...
+ * test: use `assert.equal()` for String comparisons
+ * add README.md file
+ * enable Travis-CI + Sauce Labs testing
+
 1.2.0 / 2014-09-08
 ==================
 
