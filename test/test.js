@@ -42,7 +42,7 @@ describe('BlockquoteCommand', function () {
         var blockquote = new BlockquoteCommand();
         blockquote.execute();
 
-        assert('<blockquote><p>hello</p></blockquote><p>world!</p>' === div.innerHTML);
+        assert.equal('<blockquote><p>hello</p></blockquote><p>world!</p>', div.innerHTML);
       });
 
       it('should remove a BLOCKQUOTE element when parent already contains one', function () {
@@ -63,7 +63,7 @@ describe('BlockquoteCommand', function () {
         var blockquote = new BlockquoteCommand();
         blockquote.execute();
 
-        assert('<p>hello</p><p>world!</p>' === div.innerHTML);
+        assert.equal('<p>hello</p><p>world!</p>', div.innerHTML);
       });
 
     });
