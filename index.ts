@@ -51,7 +51,7 @@ class BlockquoteCommand implements Command {
   }
 
   queryState(range?: Range): boolean {
-    return this.indent.queryState(range) || this.outdent.queryState(range);
+    return this.indent.queryState(range);
   }
 }
 
