@@ -41,13 +41,13 @@ class BlockquoteCommand implements Command {
   }
 
   execute(range?: Range, value?: any): void {
-    var cmd = this.queryState(range) ? this.outdent : this.indent;
-    cmd.execute(range);
+    var command: Command = this.queryState(range) ? this.outdent : this.indent;
+    command.execute(range);
   }
 
   queryEnabled(range?: Range): boolean {
-    var cmd = this.queryState(range) ? this.outdent : this.indent;
-    return cmd.queryEnabled(range);
+    var command: Command = this.queryState(range) ? this.outdent : this.indent;
+    return command.queryEnabled(range);
   }
 
   queryState(range?: Range): boolean {
