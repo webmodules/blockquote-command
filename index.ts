@@ -51,10 +51,7 @@ class BlockquoteCommand implements Command {
   }
 
   queryState(range?: Range): boolean {
-    if (!range) range = currentRange(this.document);
-    if (!range) return false;
-    var blockquote = closest(range.commonAncestorContainer, 'blockquote', true);
-    return !! blockquote;
+    return this.indent.queryState(range) || this.outdent.queryState(range);
   }
 }
 
