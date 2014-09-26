@@ -1,4 +1,10 @@
 
+1.2.2 / 2014-09-26
+==================
+
+ * package: update "indent-command" to v2.0.2
+ * package: update "debug" to v2.0.0
+
 1.2.1 / 2014-09-08
 ==================
 
