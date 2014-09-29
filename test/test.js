@@ -34,6 +34,7 @@ describe('BlockquoteCommand', function () {
         var range = document.createRange();
         range.setStart(div.firstChild.firstChild, 1);
         range.setEnd(div.firstChild.firstChild, 1);
+        assert(range.collapsed);
 
         var sel = window.getSelection();
         sel.removeAllRanges();
@@ -42,7 +43,16 @@ describe('BlockquoteCommand', function () {
         var blockquote = new BlockquoteCommand();
         blockquote.execute();
 
+        // test that we have the expected HTML at this point
         assert.equal('<blockquote><p>hello</p></blockquote><p>world!</p>', div.innerHTML);
+
+        // test that the Selection remains intact
+        sel = window.getSelection();
+        range = sel.getRangeAt(0);
+        assert(range.startContainer === div.firstChild.firstChild.firstChild);
+        assert(range.startOffset === 1);
+        assert(range.endContainer === div.firstChild.firstChild.firstChild);
+        assert(range.endOffset === 1);
       });
 
       it('should remove a BLOCKQUOTE element when parent already contains one', function () {
@@ -55,6 +65,7 @@ describe('BlockquoteCommand', function () {
         var range = document.createRange();
         range.setStart(div.firstChild.firstChild.firstChild, 1);
         range.setEnd(div.firstChild.firstChild.firstChild, 1);
+        assert(range.collapsed);
 
         var sel = window.getSelection();
         sel.removeAllRanges();
@@ -63,7 +74,16 @@ describe('BlockquoteCommand', function () {
         var blockquote = new BlockquoteCommand();
         blockquote.execute();
 
+        // test that we have the expected HTML at this point
         assert.equal('<p>hello</p><p>world!</p>', div.innerHTML);
+
+        // test that the Selection remains intact
+        sel = window.getSelection();
+        range = sel.getRangeAt(0);
+        assert(range.startContainer === div.firstChild.firstChild);
+        assert(range.startOffset === 1);
+        assert(range.endContainer === div.firstChild.firstChild);
+        assert(range.endOffset === 1);
       });
 
     });
