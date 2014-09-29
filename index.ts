@@ -6,7 +6,7 @@
 
 import Command = require('command');
 import IndentCommand = require('indent-command');
-import NativeCommand = require('native-command');
+import OutdentCommand = require('outdent-command');
 
 /**
  * JavaScript dependencies.
@@ -15,8 +15,8 @@ import NativeCommand = require('native-command');
 var debug = require('debug')('blockquote-command');
 
 /**
- * `BlockquoteCommand` class is either the "outdent" or "indent" native command,
- * depending on the current state of the supplied Range.
+ * `BlockquoteCommand` class is either the `OutdentCommand` or `IndentCommand`
+ * command, depending on the current state of the supplied Range.
  *
  * ``` js
  * var blockquote = new BlockquoteCommand();
@@ -34,7 +34,7 @@ class BlockquoteCommand implements Command {
   constructor(doc?: Document) {
     this.document = doc || document;
     this.indent = new IndentCommand(this.document)
-    this.outdent = new NativeCommand('outdent', this.document);
+    this.outdent = new OutdentCommand(this.document);
     debug('created BlockquoteCommand: document %o', this.document);
   }
 

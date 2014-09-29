@@ -28,7 +28,7 @@
   "dependencies": {
     "debug": "~2.0.0",
     "indent-command": "~2.1.0",
-    "native-command": "~0.1.1"
+    "outdent-command": "~1.0.0"
   },
   "devDependencies": {
     "typescript": "~1.0.1",
