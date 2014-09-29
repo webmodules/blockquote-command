@@ -12,8 +12,6 @@ import NativeCommand = require('native-command');
  * JavaScript dependencies.
  */
 
-var closest = require('component-closest');
-var currentRange = require('current-range');
 var debug = require('debug')('blockquote-command');
 
 /**

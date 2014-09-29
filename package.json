@@ -26,8 +26,6 @@
   },
   "homepage": "https://github.com/webmodules/blockquote-command",
   "dependencies": {
-    "component-closest": "~0.1.4",
-    "current-range": "~1.0.1",
     "debug": "~2.0.0",
     "indent-command": "~2.1.0",
     "native-command": "~0.1.1"
