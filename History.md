@@ -1,4 +1,12 @@
 
+2.0.0 / 2014-09-29
+==================
+
+ * use "outdent-command" module
+ * test: add selection tests after `execute()`
+ * remove unused "closest" and "current-range" modules
+ * ignore `npm-debug.log` file
+
 1.3.0 / 2014-09-27
 ==================
 
