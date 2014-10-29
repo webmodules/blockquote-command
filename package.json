@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/webmodules/blockquote-command",
   "dependencies": {
-    "debug": "~2.0.0",
+    "debug": "2",
     "indent-command": "~2.1.1",
     "outdent-command": "~1.1.0"
   },
