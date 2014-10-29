@@ -1,4 +1,10 @@
 
+2.0.1 / 2014-10-29
+==================
+
+ * package: allow any debug v2
+ * package: update "indent-command" and "outdent-command"
+
 2.0.0 / 2014-09-29
 ==================
 
