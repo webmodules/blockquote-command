@@ -1,4 +1,11 @@
 
+3.0.0 / 2015-02-19
+==================
+
+  * update to "indent-command" v3.0.0
+  * package: allow any version of zuul v1
+  * package: update "typescript" to v1.4.1
+
 2.0.2 / 2014-11-03
 ==================
 
