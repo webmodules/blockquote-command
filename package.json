@@ -27,7 +27,7 @@
   "homepage": "https://github.com/webmodules/blockquote-command",
   "dependencies": {
     "debug": "2",
-    "indent-command": "~2.1.1",
+    "indent-command": "~3.0.0",
     "outdent-command": "~1.1.1"
   },
   "devDependencies": {

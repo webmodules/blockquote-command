@@ -1,4 +1,3 @@
-/// <reference path="require.d.ts" />
 /**
 * TypeScript dependencies.
 */

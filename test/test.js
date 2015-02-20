@@ -19,7 +19,6 @@ describe('BlockquoteCommand', function () {
       var blockquote = new BlockquoteCommand();
 
       assert(blockquote instanceof BlockquoteCommand);
-      assert(blockquote.document === document);
     });
 
     describe('execute()', function () {

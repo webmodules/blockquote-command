@@ -27,15 +27,13 @@ var debug = require('debug')('blockquote-command');
  */
 
 class BlockquoteCommand implements Command {
-  public document: Document;
   public indent: Command;
   public outdent: Command;
 
-  constructor(doc?: Document) {
-    this.document = doc || document;
-    this.indent = new IndentCommand(this.document)
-    this.outdent = new OutdentCommand(this.document);
-    debug('created BlockquoteCommand: document %o', this.document);
+  constructor(root: HTMLElement = document.documentElement, doc: Document = root.ownerDocument) {
+    this.indent = new IndentCommand(root, doc);
+    this.outdent = new OutdentCommand(doc);
+    debug('created BlockquoteCommand: root %o, document %o', root, doc);
   }
 
   execute(range?: Range, value?: any): void {
