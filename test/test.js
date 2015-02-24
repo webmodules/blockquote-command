@@ -21,6 +21,16 @@ describe('BlockquoteCommand', function () {
       assert(blockquote instanceof BlockquoteCommand);
     });
 
+    it('should allow an explicit `root` and `document`', function () {
+      div = document.createElement('div');
+      div.setAttribute('contenteditable', 'true');
+      document.body.appendChild(div);
+
+      var blockquote = new BlockquoteCommand(div, document);
+
+      assert(blockquote instanceof BlockquoteCommand);
+    });
+
     describe('execute()', function () {
 
       it('should insert a BLOCKQUOTE element around parent block', function () {
