@@ -1,4 +1,13 @@
 
+3.0.1 / 2015-02-23
+==================
+
+  * package: update "indent-command" to v3.0.1
+  * package: update "outdent-command" to v1.2.0
+  * test: add `assert()` call
+  * test: add an explicit root and document instantiation test
+  * test: add a couple failing test cases with BR nodes
+
 3.0.0 / 2015-02-19
 ==================
 
