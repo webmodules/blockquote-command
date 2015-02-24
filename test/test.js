@@ -151,6 +151,7 @@ describe('BlockquoteCommand', function () {
         // test that the Selection remains intact
         sel = window.getSelection();
         range = sel.getRangeAt(0);
+        assert(range.collapsed);
         assert(range.startContainer === div.firstChild);
         assert(range.startOffset === 0);
         assert(range.endContainer === div.firstChild);
