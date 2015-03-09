@@ -1,4 +1,11 @@
 
+3.0.2 / 2015-03-09
+==================
+
+  * package: allow any "zuul" v2
+  * package: update "indent-command" to v3.0.2
+  * package: update "outdent-command" to v1.3.0
+
 3.0.1 / 2015-02-23
 ==================
 
